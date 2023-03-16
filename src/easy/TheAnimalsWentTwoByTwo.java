@@ -13,8 +13,10 @@ public class TheAnimalsWentTwoByTwo {
     public static Map<String, Integer> showPairAnimals(ArrayList<String> list) {
         Map<String, Integer> map = new HashMap<>();
         if (list.size() == 1 || list.size() == 0) {
-            return map;
+            return map; //empty
         }
+        //["goat", "goat", "rabbit", "rabbit", "rabbit", "duck", "horse", "horse", "swan"]
+
         for (String each : list) {
             if (map.containsKey(each)) {
                 map.put(each, 2);
@@ -22,11 +24,14 @@ public class TheAnimalsWentTwoByTwo {
                 map.put(each, 1);
             }
         }
-
+        System.out.println(map);//{horse=2, duck=1, rabbit=2, swan=1, goat=2}
       map.entrySet().removeIf(entry->entry.getValue()==1);
-        return map;
+        return map;//{horse=2, rabbit=2, goat=2}
 
     }
+
+
+
     public static Map<String, Integer> showPairAnimalsWithTwoPointers(ArrayList<String> list) {
         Map<String, Integer> map = new HashMap<>();
         int left = 0;
