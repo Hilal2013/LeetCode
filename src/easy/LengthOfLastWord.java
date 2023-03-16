@@ -5,33 +5,32 @@ import java.util.Arrays;
 public class LengthOfLastWord {
 
     public static void main(String[] args) {
-       // String s = "   fly me   to   the moon  ";
-        String s = "a ";
+         String s = "   fly me   to   the moon  ";
+      //  String s = "a ";
         System.out.println(lengthOfLastWord(s));
         System.out.println(lengthOfLastWordWithArray(s));
     }
-    public static int lengthOfLastWord(String s) {
-if(s.length()==1 ){
-    return 1;
-}
 
-        String result=s.trim();
-        result=result.substring(result.lastIndexOf(" ")+1,result.length());
+    public static int lengthOfLastWord(String s) {
+        if (s.length() == 1) {
+            return 1;
+        }
+
+        String result = s.trim();
+        result = result.substring(result.lastIndexOf(" ") + 1, result.length());
         return result.length();
 
     }
+
     public static int lengthOfLastWordWithArray(String s) {
 
 
         String[] arr = s.split(" ");
+        System.out.println(Arrays.toString(arr));//[, , , fly, me, , , to, , , the, moon]
         return arr[arr.length - 1].length();
     }
-  //  public static int lengthOfLastWordWithTwoPointers(String s) {
-  //      int left;
-  //      int right = s.length() - 1;
 
 
-  //  }
 
 }
 /*
