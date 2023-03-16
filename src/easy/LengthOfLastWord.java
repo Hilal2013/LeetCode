@@ -16,8 +16,8 @@ public class LengthOfLastWord {
             return 1;
         }
 
-        String result = s.trim();
-        result = result.substring(result.lastIndexOf(" ") + 1, result.length());
+        String result = s.trim();//O(n)
+        result = result.substring(result.lastIndexOf(" ") + 1);
         return result.length();
 
     }
@@ -25,7 +25,7 @@ public class LengthOfLastWord {
     public static int lengthOfLastWordWithArray(String s) {
 
 
-        String[] arr = s.split(" ");
+        String[] arr = s.split(" ");//O(n)
         System.out.println(Arrays.toString(arr));//[, , , fly, me, , , to, , , the, moon]
         return arr[arr.length - 1].length();
     }
