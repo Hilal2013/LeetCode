@@ -6,10 +6,10 @@ public class BesTimeBuyAndSell {
 
       // int[] prices = {7,6,4,3,1};//0
        // int[] prices = {2,4,1};//2
-        int[] prices = {7,1, 5, 3, 6, 4};//5
-        //int[] prices = { 3,2,6,5,0,3};//not working//3 it should be 4
+       // int[] prices = {7,1, 5, 3, 6, 4};//5
+        int[] prices = { 3,2,6,5,0,3};//not working//3 it should be 4
 
-        System.out.println(maxProfit(prices));
+        System.out.println(maxProfit2(prices));
 
     }
 
@@ -51,43 +51,29 @@ public class BesTimeBuyAndSell {
         return max-min;
 
     }
-    public static int maxProfitWithTwoPoints(int[] prices) {
+    public static int maxProfit2(int[] prices) {
+        int min=prices[0];
+        int profit = 0;// prices[i]-min //first of all Im gonna find profits
+        int maxProfit = 0;//and then max profit
 
-        int first = 0;
-        int second = first + 1;
-        int maxProfit = Integer.MIN_VALUE;
-        while (first < second ) {  //7, 1, 5, 3, 6, 4
+        for (int i = 0; i < prices.length; i++) {
 
-            if (prices[first] > prices[second]) {
-                second++;
 
-                if (second == prices.length - 1) {
-                    first++;
-                    second = first + 1;
-                }
 
-            } else if (prices[first] < prices[second]) {
-                if (prices[second] - prices[first] > maxProfit) {
-                    maxProfit = prices[second] - prices[first];
-                    second++;
-                    if (second == prices.length - 1) {
-                        first++;
-                        second = first + 1;
-                    }
-
-                }else{second++;
-                    if (second == prices.length - 1) {
-                        first++;
-                        second = first + 1;
-                    }}
-
-            } else if (second == prices.length - 1) {
-                first++;
-                second = first + 1;
-                break;
+            if(prices[i]< min){
+                min=  prices[i];
             }
+            profit=prices[i]-min;
+            if(profit>maxProfit){
+                maxProfit=profit;
+            }
+
+
         }
+
         return maxProfit;
+
+
     }
 
 }
@@ -108,112 +94,10 @@ Constraints:
  1 <= prices.length <= 105
  0 <= prices[i] <= 104
 
- while(left!=prices.length-1){
-
-           if (prices[left] >= prices[right]&&right<=prices.length-1) {
-               right++;
-           } else if (prices[left] < prices[right] && right<=prices.length-1) {
-               if (maxProfit > prices[right] - prices[left]) {
-                   maxProfit = prices[right] - prices[left];
-
-                   return maxProfit;
-               }
-               right++;
-
-           }else if(right<=prices.length-1){
-               left++;
-           }
-
-
-       }
-
- while (left < right) {
-            if (prices[left] >= prices[right]) {
-                left++;
-            } else if (prices[left] < prices[right]) {
-                if (maxProfit > prices[right] - prices[left]) {
-                    maxProfit = prices[right] - prices[left];
-
-
-                    return maxProfit;
-                }
-
-                right--;
-            }
-
-
-        }
-
- for (int i = 0; i < prices.length; i++) {
-            if (prices[left] >= prices[right]) {
-                right++;
-            } else if (prices[left] < prices[right]) {
-                if (maxProfit > prices[right] - prices[left]) {
-                    maxProfit = prices[right] - prices[left];
-
-                    return maxProfit;
-                }
-                right++;
-
-            }else{
-                left++;
-            }
-
-
-        }
-
-       if (prices[0] < prices[1] && prices.length>1) {//for example 2,4,1
-            for (int i = 1; i < prices.length; i++) {
-
-                min=prices[0];
-                if (prices[i]>max) {
-                    max=prices[i];
-                }
-
-            }
-
-        }else{
-            for (int i = 0; i < prices.length; i++) { //7, 1, 5, 3, 6, 4
-                if(prices[i]< min){
-                    min=  prices[i];//1
-                    minIndex=i;//1
-
-                }
-            }
-            max=prices[minIndex];
-            for (int i = minIndex+1; i <prices.length ; i++) {
-                if (prices[i]>max) {
-                    max=prices[i];//6
-                }
-            }
-
-
-        }
- int min=prices[0];
-        int minIndex=0;
-        int max=-1;
-
-            for (int i = 0; i < prices.length; i++) {
-                if (prices[i] < prices[i+1] ) {
-                    min = prices[i];
-                    if (prices[i] > max) {
-                        max = prices[i];
-                    }
-                }else{
-                    if(prices[i]< min){
-                        min=  prices[i];//1
-                        minIndex=i;//1
-                    }
-                }
-            }
-        max=prices[minIndex];
-        for (int i = minIndex+1; i <prices.length ; i++) {
-            if (prices[i]>max) {
-                max=prices[i];//6
-            }
-        }
-        return max-min;
-
-
+            min = Math.min(min,prices[i]);
+            profit = prices[i] - min;
+            maxProfit = Math.max(maxProfit,profit);
 
  */
+
+
