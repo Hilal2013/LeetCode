@@ -68,7 +68,6 @@ public class BesTimeBuyAndSell {
                 maxProfit=profit;
             }
 
-
         }
 
         return maxProfit;
