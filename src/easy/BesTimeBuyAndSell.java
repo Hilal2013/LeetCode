@@ -11,7 +11,33 @@ public class BesTimeBuyAndSell {
 
     }
 
+
     public static int maxProfit(int[] prices) {
+  //im gonna find min  and then Im gonna find max after minIndex
+
+        int min=prices[0];
+        int minIndex=0;
+        for (int i = 0; i < prices.length; i++) { //7, 1, 5, 3, 6, 4
+
+            if(prices[i]< min){
+              min=  prices[i];//1
+                minIndex=i;//1
+
+            }
+
+        }
+        int max=prices[minIndex];
+        for (int i = minIndex+1; i <prices.length ; i++) {
+
+                if (prices[i]>max) {
+                    max=prices[i];//6
+                }
+        }
+
+        return max-min;
+
+    }
+    public static int maxProfitWithTwoPoints(int[] prices) {
 
         int first = 0;
         int second = first + 1;
@@ -37,13 +63,14 @@ public class BesTimeBuyAndSell {
 
                 }else{second++;
                     if (second == prices.length - 1) {
-                    first++;
-                    second = first + 1;
-                }}
+                        first++;
+                        second = first + 1;
+                    }}
 
             } else if (second == prices.length - 1) {
                 first++;
                 second = first + 1;
+                break;
             }
         }
         return maxProfit;
