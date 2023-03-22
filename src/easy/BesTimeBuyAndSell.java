@@ -13,29 +13,40 @@ public class BesTimeBuyAndSell {
 
     public static int maxProfit(int[] prices) {
 
-        int left = 0;
-        int right = 1;
-        int maxProfit = Integer. MIN_VALUE;
-       while(left!=prices.length-1){
+        int first = 0;
+        int second = first + 1;
+        int maxProfit = Integer.MIN_VALUE;
+        while (first < second ) {  //7, 1, 5, 3, 6, 4
 
-           if (prices[left] >= prices[right]&&right<=prices.length-2) {
-               right++;
-           } else if (prices[left] < prices[right] && right<=prices.length-2) {
-               right=1;
-               if (maxProfit > prices[right] - prices[left]) {
-                   maxProfit = prices[right] - prices[left];
+            if (prices[first] > prices[second]) {
+                second++;
 
-                   return maxProfit;
-               }
-               right++;
+                if (second == prices.length - 1) {
+                    first++;
+                    second = first + 1;
+                }
 
-           }else if(right<=prices.length-1){
-               left++;
-           }
+            } else if (prices[first] < prices[second]) {
+                if (prices[second] - prices[first] > maxProfit) {
+                    maxProfit = prices[second] - prices[first];
+                    second++;
+                    if (second == prices.length - 1) {
+                        first++;
+                        second = first + 1;
+                    }
 
+                }else{second++;
+                    if (second == prices.length - 1) {
+                    first++;
+                    second = first + 1;
+                }}
 
-       }
-        return 0;
+            } else if (second == prices.length - 1) {
+                first++;
+                second = first + 1;
+            }
+        }
+        return maxProfit;
     }
 
 }
