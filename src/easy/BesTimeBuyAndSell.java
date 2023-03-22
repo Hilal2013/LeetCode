@@ -4,10 +4,12 @@ public class BesTimeBuyAndSell {
 
     public static void main(String[] args) {
 
-        int[] prices = {7, 1, 5, 3, 6, 4};
+      // int[] prices = {7,6,4,3,1};//0
+       // int[] prices = {2,4,1};//2
+        int[] prices = {7,1, 5, 3, 6, 4};//5
+        //int[] prices = { 3,2,6,5,0,3};//not working//3 it should be 4
 
         System.out.println(maxProfit(prices));
-
 
     }
 
@@ -17,23 +19,35 @@ public class BesTimeBuyAndSell {
 
         int min=prices[0];
         int minIndex=0;
-        for (int i = 0; i < prices.length; i++) { //7, 1, 5, 3, 6, 4
+        int max=-1;
 
-            if(prices[i]< min){
-              min=  prices[i];//1
-                minIndex=i;//1
+        if (prices[0] < prices[1]) {//for example 2,4,1
+            for (int i = 1; i < prices.length; i++) {
+
+                min=prices[0];
+                if (prices[i]>max) {
+                    max=prices[i];
+                }
 
             }
 
-        }
-        int max=prices[minIndex];
-        for (int i = minIndex+1; i <prices.length ; i++) {
+        }else{
+            for (int i = 0; i < prices.length; i++) { //7, 1, 5, 3, 6, 4
+                if(prices[i]< min){
+                    min=  prices[i];//1
+                    minIndex=i;//1
 
+                }
+            }
+            max=prices[minIndex];
+            for (int i = minIndex+1; i <prices.length ; i++) {
                 if (prices[i]>max) {
                     max=prices[i];//6
                 }
-        }
+            }
 
+
+        }
         return max-min;
 
     }
@@ -147,5 +161,59 @@ Constraints:
 
 
         }
+
+       if (prices[0] < prices[1] && prices.length>1) {//for example 2,4,1
+            for (int i = 1; i < prices.length; i++) {
+
+                min=prices[0];
+                if (prices[i]>max) {
+                    max=prices[i];
+                }
+
+            }
+
+        }else{
+            for (int i = 0; i < prices.length; i++) { //7, 1, 5, 3, 6, 4
+                if(prices[i]< min){
+                    min=  prices[i];//1
+                    minIndex=i;//1
+
+                }
+            }
+            max=prices[minIndex];
+            for (int i = minIndex+1; i <prices.length ; i++) {
+                if (prices[i]>max) {
+                    max=prices[i];//6
+                }
+            }
+
+
+        }
+ int min=prices[0];
+        int minIndex=0;
+        int max=-1;
+
+            for (int i = 0; i < prices.length; i++) {
+                if (prices[i] < prices[i+1] ) {
+                    min = prices[i];
+                    if (prices[i] > max) {
+                        max = prices[i];
+                    }
+                }else{
+                    if(prices[i]< min){
+                        min=  prices[i];//1
+                        minIndex=i;//1
+                    }
+                }
+            }
+        max=prices[minIndex];
+        for (int i = minIndex+1; i <prices.length ; i++) {
+            if (prices[i]>max) {
+                max=prices[i];//6
+            }
+        }
+        return max-min;
+
+
 
  */
