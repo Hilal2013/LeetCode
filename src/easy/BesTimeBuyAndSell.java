@@ -58,8 +58,6 @@ public class BesTimeBuyAndSell {
 
         for (int i = 0; i < prices.length; i++) {
 
-
-
             if(prices[i]< min){
                 min=  prices[i];
             }

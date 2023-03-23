@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class LengthOfLastWord {
 
     public static void main(String[] args) {
-         String s = "   fly me   to   the moon  ";
-      //  String s = "a ";
+        String s = "   fly me   to   the moon  ";
+        //  String s = "a ";
         System.out.println(lengthOfLastWord(s));
         System.out.println(lengthOfLastWordWithArray(s));
     }
@@ -30,6 +30,17 @@ public class LengthOfLastWord {
         return arr[arr.length - 1].length();
     }
 
+    public static int lengthOfLastWord1(String s) {
+        int result = 0;
+
+        s = s.trim();//O(n)
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) == ' ') break;
+            else result++;
+        }
+
+        return result;
+    }
 
 
 }
