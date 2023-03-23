@@ -7,6 +7,19 @@ public class ExcelSheetColumnNumber {
         String columnTitle= "ZY";//701
 
         System.out.println(titleToNumber(columnTitle));
+        System.out.println(forLoopFromBeginning(columnTitle));
+    }
+    public static int forLoopFromBeginning(String columnTitle){
+        //BCM    M on excel sheet indicates 13=>char-'A'+1// AScii 77-65+1=13
+        // M=13*26^0 C=3*26^1  B=2*26^2
+
+        int result=0;
+int p=columnTitle.length()-1;
+        for (char ch : columnTitle.toCharArray()) {
+            result+=((ch-'A'+1)* Math.pow(26,p--));
+        }
+
+        return result;
 
     }
 
