@@ -10,35 +10,31 @@ public class MyHashMap {
 
     public void put(int key, int value) {
         Node node = new Node(key, value);
-        Node current = head;
         if (head == null) {
-            head = tail = node;
-        }
-        if (current != null) {
-            if (current.key == node.key) {
-                current.value = node.value;
-                tail.next = node;
-                tail = node;
-                size++;
-            } else {
-                tail.next = node;
-                tail = node;
-                size++;
+            head =tail= node;
+
+        } else {
+           if (tail.key ==key) {
+                tail.value = value;
+                return;
             }
+            tail.next = node;
+            tail = node;
+            size++;
         }
 
     }
 
     void printNodes() {
         Node current = head;
-        Map<Integer, Integer> map = new HashMap<>();
-
+        // Map<Integer, Integer> map = new HashMap<>();
+        if (current == null) System.out.println("null");
         while (current != null) {
-            map.put(current.key, current.value);
-
+            System.out.print("(" + current.key + "," + current.value + ")");
             current = current.next;
+
         }
-        System.out.println(map);
+        System.out.println();
     }
 
     public int get(int key) {
@@ -109,4 +105,24 @@ myHashMap.put(2, 1); // The map is now [[1,1], [2,1]] (i.e., update the existing
 myHashMap.get(2);    // return 1, The map is now [[1,1], [2,1]]
 myHashMap.remove(2); // remove the mapping for 2, The map is now [[1,1]]
 myHashMap.get(2);    // return -1 (i.e., not found), The map is now [[1,1]]
+
+ Node current=head;
+        if (head == null) {
+            head =tail= node;
+            size++;
+        } else {
+        while (current != null){
+            if (current.key ==key) {
+                current.value = value;
+               current=tail;
+            } else {
+                tail.next = node;
+                tail = node;
+                size++;
+            }
+        }
+        }
+
+
+
  */
