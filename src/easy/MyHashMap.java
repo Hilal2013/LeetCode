@@ -1,8 +1,5 @@
 package easy;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class MyHashMap {
     Node head;
     Node tail;
@@ -72,6 +69,12 @@ public class MyHashMap {
         }
 
     }
+    void reverseLinkedList(){
+
+
+
+    }
+
 
 }
 
