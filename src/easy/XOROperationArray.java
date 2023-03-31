@@ -10,9 +10,9 @@ public class XOROperationArray {
     }
 
     public static int xorOperation(int n, int start) {
-int[] nums=new int[n];
+int[] nums=new int[n]; //space comp O(n)
 int value=0;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) { //time comp O(n)
             nums[i]=start+(2*i);
         //   value=value^nums[i];
            value^=nums[i];
