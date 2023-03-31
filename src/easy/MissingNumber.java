@@ -4,13 +4,20 @@ import java.util.Arrays;
 
 public class MissingNumber {
     public static void main(String[] args) {
-        //  int[] nums={9,6,4,2,3,5,7,0,1};
-        int[] nums = {0, 1};
+       // int[] nums={9,6,4,2,3,5,7,0,1};
+       int[] nums = {0, 1};
+        System.out.println(missingNumberXOR(nums));
         System.out.println(missingNumber(nums));
         System.out.println(missingNumberWithArr(nums));
         System.out.println(missingNumberWithMath(nums));
     }
-
+    public static int missingNumberXOR(int[] nums) {
+        int missingNumber=0;
+        for (int i = 0; i < nums.length; i++) {
+        missingNumber = missingNumber^(nums[i]^(i+1));
+        }
+        return  missingNumber;
+    }
     public static int missingNumber(int[] nums) {
         Arrays.sort(nums); //time complexity O(nlog n)
 
