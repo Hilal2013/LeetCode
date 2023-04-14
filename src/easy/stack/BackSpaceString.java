@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class BackSpaceString {
     public static void main(String[] args) {
-        String s = "ab##";
+        String s = "abc#";
         String t = "a#b#";
         System.out.println(backspaceCompareWithStringBuilder(s, t));
         System.out.println(backspaceCompareWithStack(s,t));
