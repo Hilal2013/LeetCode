@@ -14,7 +14,7 @@ class ListNode {
        }
        ListNode slow = head;
 ListNode fast = head.next;
-   
+
         while (fast != null) {
             if (fast.val == val) {
 slow.next=fast.next;
@@ -54,5 +54,6 @@ return head;
         return head;
 
     }
+
 
 }
