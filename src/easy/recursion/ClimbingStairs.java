@@ -1,4 +1,4 @@
-package easy;
+package easy.recursion;
 
 import java.util.HashMap;
 
