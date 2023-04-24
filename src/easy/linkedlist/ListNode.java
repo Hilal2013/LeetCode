@@ -54,6 +54,15 @@ return head;
         return head;
 
     }
-
+ void printNodes(ListNode head){
+        ListNode current=head;
+        while(current!=null){
+            if (current.next==null) System.out.println(current.val+"=> null");
+            else {
+                System.out.print(current.val+"=> ");
+            }
+            current=current.next;
+        }
+    }
 
 }
