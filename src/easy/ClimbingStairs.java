@@ -1,5 +1,7 @@
 package easy;
 
+import java.util.HashMap;
+
 public class ClimbingStairs {
     public static void main(String[] args) {
       int n=3;
@@ -9,14 +11,31 @@ public class ClimbingStairs {
     }
 
 
-    public static int climbStairs(int n) {
-//
-// 1-2-3-5-8-13-21....=> it is fibonacci numbers:))
+    public static int climbStairs1(int n) {//n=45 time limit exceeded
+        // 1-2-3-5-8-13-21....=> it is fibonacci numbers:))
 //fib(n)=fib(n-1)+fib(n-2);
-        if (n <= 1) return 1;//terminate
-        else
-        return climbStairs(n-1)+climbStairs(n-2);
+        if(n==0)
+            return 1;
+        if(n==1)
+            return 1;
+        return climbStairs1(n-1) +climbStairs1( n-2);
     }
+    public static int climbStairs(int n){
+        HashMap<Integer, Integer> map = new HashMap<>();
+        //key=n value ,how many ways to climb
+        map.put(1,1);
+        map.put(2,2);
+        return climb(map,n);
+
+    }
+public static int climb(HashMap<Integer,Integer> map,int n){
+    if(map.containsKey(n)) //checking if n is already present
+        return map.get(n);
+    else // add it to the HashMap
+        map.put(n,(climb(map,n-1)+climb(map,n-2)));
+        return map.get(n);
+
+}
 
 }
 /*
