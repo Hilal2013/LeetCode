@@ -4,38 +4,66 @@ import java.util.HashMap;
 
 public class ClimbingStairs {
     public static void main(String[] args) {
-      int n=3;
-
-
+        int n=7;
         System.out.println(climbStairs(n));
+        System.out.println(iteration(n));
+        System.out.println(climbStairsArray(7));
+        System.out.println(climbStairsMap(7));
+    }
+    public static  long  iteration(int n){
+
+        if(n<=2){
+            return n;
+        }
+        int n1=1,n2=2,result=0;
+        for (int i = 3; i <=n ; i++) {
+            result=n1+n2;//3//2+3=5
+            n1=n2; //n1>2//3
+            n2=result; //n2>3
+
+        }
+
+        return result;
+
+    }
+    public static int climbStairsArray(int n) {
+        //   if(n==1||n==2) return n;
+        int[] arr=new int[n+1];
+        arr[0]=1;
+        arr[1]=1;
+        arr[2]=2;
+        for (int i = 3; i <= n; i++) {
+            arr[i]=arr[i-1]+arr[i-2];
+            //arr[7]=arr[7-1]+arr[7-2]=13+8=21
+        }
+        return  arr[n];
     }
 
-
-    public static int climbStairs1(int n) {//n=45 time limit exceeded
+    public static int climbStairs(int n) {//n=45 time limit exceeded
         // 1-2-3-5-8-13-21....=> it is fibonacci numbers:))
 //fib(n)=fib(n-1)+fib(n-2);
         if(n==0)
             return 1;
         if(n==1)
             return 1;
-        return climbStairs1(n-1) +climbStairs1( n-2);
+        return climbStairs(n-1) +climbStairs( n-2);
     }
-    public static int climbStairs(int n){
+    public static int climbStairsMap(int n){
         HashMap<Integer, Integer> map = new HashMap<>();
-        //key=n value ,how many ways to climb
+        //key=n value= how many ways to climb
         map.put(1,1);
         map.put(2,2);
         return climb(map,n);
 
     }
-public static int climb(HashMap<Integer,Integer> map,int n){
-    if(map.containsKey(n)) //checking if n is already present
-        return map.get(n);
-    else // add it to the HashMap
-        map.put(n,(climb(map,n-1)+climb(map,n-2)));
+    public static int climb(HashMap<Integer,Integer> map,int n){
+        if(map.containsKey(n)) //checking if n is already present
+            return map.get(n);
+        else // add it to the HashMap
+            map.put(n,(climb(map,n-1)+climb(map,n-2)));
         return map.get(n);
 
-}
+    }
 
 }
 /*
