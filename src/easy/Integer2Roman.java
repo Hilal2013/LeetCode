@@ -29,10 +29,10 @@ public class Integer2Roman {
         map.put(1, "I");
         StringBuilder str=new StringBuilder();
         for (int key : map.keySet()) {
-            while(num >= key) {
-                num-=key;
+            while(num >= key) {//1995
+                num-=key; //num=1995-1000=995 //
                 // num = num - key;
-                str.append(map.get(key));
+                str.append(map.get(key));//M+
                 //  str = str + map.get(key);
             }
         }
