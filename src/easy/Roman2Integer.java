@@ -5,8 +5,8 @@ import java.util.TreeMap;
 public class Roman2Integer {
     public static void main(String[] args) {
     //String s = "LVIII";
-      String s=  "MCMXCIV";
-      //  String s=  "VV";
+     String s=  "MCMXCIV";//1994
+       // String s=  "VV";
         System.out.println(romanToInt(s));
 
 

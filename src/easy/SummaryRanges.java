@@ -54,7 +54,7 @@ int start=0; int end=0; //start will be index 0
         int i = 0;
         while(i < nums.length)
         {
-            if(i+1  < nums.length && nums[i + 1] - nums[i] == 1)
+            if(i  < nums.length-1 && nums[i + 1] - nums[i] == 1)
             {
                 end++;
             }
