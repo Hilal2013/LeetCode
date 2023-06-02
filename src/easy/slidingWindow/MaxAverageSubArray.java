@@ -7,7 +7,7 @@ public class MaxAverageSubArray {
     }
     public static double findMaxAverage(int[] nums, int k) {
 
-        double maxAvg=Double.MIN_VALUE;
+        double maxAvg=Integer.MIN_VALUE;//???
         double currentAvg=0;
         double currentSum=0;
 
