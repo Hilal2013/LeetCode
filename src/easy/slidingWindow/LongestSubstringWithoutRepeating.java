@@ -49,6 +49,7 @@ public class LongestSubstringWithoutRepeating {
                 ++j;
             }
             set.add(ch);
+            System.out.println(set);
             max = Math.max(max, i - j + 1);
             i++;
 
