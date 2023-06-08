@@ -6,10 +6,10 @@ import java.util.Map;
 
 public class TwoSum {
     public static void main(String[] args) {
-        int[] array={1,3,7,5,6};
-        int[] arr = {3,2,4};
-        System.out.println(Arrays.toString(twoSumWithTwoPointers(arr, 6)));
-        System.out.println(Arrays.toString(twoSumOptimalSolution(arr,6)));
+        int[] arr={1,3,7,5,6};
+        //int[] arr = {3,2,4};
+        System.out.println(Arrays.toString(twoSumWithTwoPointers(arr, 9)));
+        System.out.println(Arrays.toString(twoSumOptimalSolution(arr,9)));
 
     }
 
@@ -27,7 +27,7 @@ public class TwoSum {
                 break;
             } else if (second == nums.length - 1) {
                 first++;
-              //  second = first + 1;
+
             } else {
                 second++;
             }
