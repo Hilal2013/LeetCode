@@ -3,7 +3,8 @@ package easy;
 public class RemoveExtraSpaces {
     public static void main(String[] args) {
         String str = "   today is      tuesday             ";
-str=str.trim();
+        str=str.trim();
+        System.out.println(str);
 StringBuilder newStr=new StringBuilder();
 
         boolean isSpace = false;
