@@ -10,19 +10,19 @@ public class ReverseVowels {
 
         int first = 0;
         int second = s.length() - 1;
-        char[] result = s.toCharArray();
+        StringBuilder sb=new StringBuilder(s);
         while (first < second) {
             if (isVowel(s.charAt(first)) && isVowel(s.charAt(second))) {
-                char ch=result[first];
-               result[first]=result[second];
-               result[second]=ch;
+                char temp=s.charAt(first);
+                sb.setCharAt(first, sb.charAt(second));
+                sb.setCharAt(second,temp);
                 first++;
                 second--;}
  else if(!isVowel(s.charAt(first))) first++;
  else second--;
         }
 
-return new String(result);
+return sb.toString();
     }
     public static boolean isVowel(char ch) {
         return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' || ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U';

@@ -7,6 +7,7 @@ public class FindSecondMinNumber {
         int arr[] = {111, 13, 25, 9, 34, 1};
 
         System.out.println(findSecondMin(arr));
+        System.out.println(findSecondMinStream(arr));
     }
 
     public static int findSecondMin(int[] arr) {
@@ -17,9 +18,13 @@ public class FindSecondMinNumber {
         }
 
         for (int i : arr) {
-            if (i < secondMin && i > min) {
-                secondMin = i;
+//            if ( secondMin<i && i > min) {
+//                secondMin = i;
+//            }
+            if(i<min){
+                secondMin=Math.min(secondMin,i);
             }
+
         }
 
      //   return secondMin;
