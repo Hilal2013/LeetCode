@@ -1,28 +1,31 @@
 package easy.hilal;
 
+import java.util.HashMap;
+
 public class IsSubsequence {
     public static void main(String[] args) {
-     String s = "acd", t = "ahbgdc";
+     String s = "adc", t = "ahbgdc";
         System.out.println(isSubsequence(s,t));
     }
-    public static boolean isSubsequence(String s, String t) {
-       int first =0, second=0;
-       if(s.length()==0)return true;
 
 
-        while(first<s.length() && second<t.length()){
-            if(s.charAt(first)==t.charAt(second)){
-                first++;
+    private static boolean isSubsequence(String s, String t) {
 
-            }else{
-                second++;
-            }
-            if(first == s.length()) return true;
+        if (s.isEmpty()) return true;
+        HashMap<Character,Integer> map = new HashMap<>();
+        for (char ch : t.toCharArray()) {
+            map.put(ch,map.getOrDefault(ch,0)+1);
         }
+        System.out.println(map);
 
-
-        return false;
+        for (char ch : s.toCharArray()) {
+            if (!map.containsKey(ch)) {
+                return false;
+            }
+        }
+        return true;
     }
+
 }
 //Given two strings s and t, return true if s is a subsequence of t, or false otherwise.
 //
