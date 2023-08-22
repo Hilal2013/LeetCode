@@ -10,20 +10,21 @@ public class IsSubsequence {
 
 
     private static boolean isSubsequence(String s, String t) {
+        int i= 0;
+        int j = 0;
 
-        if (s.isEmpty()) return true;
-        HashMap<Character,Integer> map = new HashMap<>();
-        for (char ch : t.toCharArray()) {
-            map.put(ch,map.getOrDefault(ch,0)+1);
-        }
-        System.out.println(map);
-
-        for (char ch : s.toCharArray()) {
-            if (!map.containsKey(ch)) {
-                return false;
+        while(i<s.length() && j<t.length()){
+            if(s.charAt(i) == t.charAt(j)){
+                i++;
+                j++;
+            }else{
+                j++;
             }
         }
-        return true;
+
+        if(i == s.length()) return true;
+        return false;
+
     }
 
 }
