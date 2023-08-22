@@ -16,19 +16,18 @@ return-1;
     }
     public void update(int key,int value){
         boolean found = false;
-        Node node = new Node(key,value);
+       //Node node = new Node(key,value);
         if(head == null){
-            head = new Node(key, value);
-            return;
+            head =  new Node(key,value);
         }
         Node current = head;
         while (current != null) {
-            if (node.key ==current.key){
-                current.value=node.value;
+            if (current.key==key){
+                current.value=value;
                 found=true;
             }
             if(!found){
-                current.next=new Node(key, value);
+                current.next= new Node(key,value);
             }
             current=current.next;
 

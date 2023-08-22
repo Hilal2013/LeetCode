@@ -12,13 +12,13 @@ public class ReverseVowels {
         int second = s.length() - 1;
         StringBuilder sb=new StringBuilder(s);
         while (first < second) {
-            if (isVowel(s.charAt(first)) && isVowel(s.charAt(second))) {
-                char temp=s.charAt(first);
+            if (isVowel(sb.charAt(first)) && isVowel(sb.charAt(second))) {
+                char temp=sb.charAt(first);
                 sb.setCharAt(first, sb.charAt(second));
                 sb.setCharAt(second,temp);
                 first++;
                 second--;}
- else if(!isVowel(s.charAt(first))) first++;
+ else if(!isVowel(sb.charAt(first))) first++;
  else second--;
         }
 

@@ -9,24 +9,37 @@ public class RemoveDuplicatesFromSortedArray {
     public static void main(String[] args) {
         int[] nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
         System.out.println(removeDuplicates1(nums));
+        System.out.println(removeDuplicates(nums));
     }
 
-    public static int removeDuplicates1(int[] nums){
+    public static int removeDuplicates1(int[] nums) {
         //i=> find number fast
         //j= -101
         // replace repeating numbers with -101 swap
-        int j=1;
+        int count = 1;//we assume first element unique by default
+//        for (int i = 0; i < nums.length - 1; i++) {
+//            if (nums[i] < nums[i + 1]) {
+//                nums[j] = nums[i + 1];
+//                j++;
+//            }
+        int first=0, second=1;
 
-        for (int i = 0; i < nums.length-1; i++) {
-            if(nums[i]<nums[i+1]){
-                nums[j]=nums[i+1];
-                j++;
+        while(second<nums.length){
+            if(nums[first]==nums[second]) second++;
+            else{
+
             }
+
+
+
+            first++;
+            second++;
         }
 
-     return j;
-    }
 
+
+        return count;
+    }
 
 
     public static int removeDuplicates(int[] nums) {
@@ -36,37 +49,14 @@ public class RemoveDuplicatesFromSortedArray {
         for (int i = 0; i < nums.length; i++) {
             if (!set.contains(nums[i])) {
                 set.add(nums[i]);
-                nums[count] = nums[i];
-                count++;
+                nums[count++] = nums[i];
+              //  count++;
             }
         }
-
+        System.out.println(set);
         return count;
 
-/*
-        Map<Integer,Integer> map=new TreeMap<>();
-
-        for (int i : nums) {
-            if(!map.containsKey(i)){
-                map.put(i,1);
-            }else{
-                map.put(nums[i],map.get(i)+1);
-            }
-        }
-        System.out.println(map);//{0=2, 1=2, 2=1, 3=1, 4=1}
-        Set s = new HashSet<>();
-        s=map.keySet();
-        int count=0;
-        for (Object each : s) {
-            nums[count++]= (int) each;
-        }
-
-        return s.size();//number of key//value pairs
-
- */
-
     }
-
 
 }
 /*

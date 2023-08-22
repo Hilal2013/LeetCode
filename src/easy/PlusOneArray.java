@@ -53,6 +53,8 @@ public class PlusOneArray {
 
         }
         int num = Integer.parseInt(str) + 1;//convert string to int and add 1
+      //  char[] arr=String.valueOf(num).toCharArray();
+
         int[] arr = Integer.toString(num)  //convert to String value
                 .chars() //get a stream
                 .map(c -> c - '0')// get the actual int value of a chracter

@@ -56,6 +56,7 @@ public class ValidPalindrome {
            return true;
        }
        str = str.toLowerCase().replaceAll("[^a-z0-9]", "");
+       System.out.println(str);
        int left = 0, right = str.length() - 1;//
        while (left < right) {
            if (str.charAt(left) == str.charAt(right)) {

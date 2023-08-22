@@ -21,27 +21,27 @@ public class FindSecondMinNumber {
 //            if ( secondMin<i && i > min) {
 //                secondMin = i;
 //            }
-            if(i<min){
+            if(i>min){
                 secondMin=Math.min(secondMin,i);
             }
 
         }
 
-     //   return secondMin;
+        return secondMin;
         
-        int first =Integer.MAX_VALUE;
-int second=Integer.MAX_VALUE;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < first) {
-                second = first;
-                first = arr[i];
-            }
-            else if (arr[i] < second && arr[i] != first)
-                second = arr[i];
-        }
-        
-      return second;
-        
+//        int first =Integer.MAX_VALUE;
+//int second=Integer.MAX_VALUE;
+//        for (int i = 0; i < arr.length; i++) {
+//            if (arr[i] < first) {
+//                second = first;
+//                first = arr[i];
+//            }
+//            else if (arr[i] < second && arr[i] != first)
+//                second = arr[i];
+//        }
+//
+//      return second;
+//
 
     }
 

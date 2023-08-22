@@ -12,8 +12,6 @@ public class LongestSubstringWithoutRepeating {
         //String s = "bbb";
 
         System.out.println(lengthOfLongestSubstringSlidingWindow(s));
-        ;
-
 
     }
 

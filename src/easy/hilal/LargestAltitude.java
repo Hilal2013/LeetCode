@@ -15,7 +15,7 @@ public class LargestAltitude {
 ;
         for (int i = 0; i < gain.length; i++) {
 
-            //altitude[1]=altitude[0]+ altitude[1];
+            //altitude[1]=altitude[0]+ gain[0];
             altitude[i+1]=altitude[i]+gain[i];
 
         }
