@@ -10,19 +10,19 @@ public class IsSubsequence {
 
 
     private static boolean isSubsequence(String s, String t) {
-        int i= 0;
-        int j = 0;
+        int first= 0;
+        int second = 0;
 
-        while(i<s.length() && j<t.length()){
-            if(s.charAt(i) == t.charAt(j)){
-                i++;
-                j++;
+        while(first<s.length() && second<t.length()){
+            if(s.charAt(first) == t.charAt(second)){
+                first++;
+                second++;
             }else{
-                j++;
+                second++;
             }
         }
 
-        if(i == s.length()) return true;
+        if(first == s.length()) return true;
         return false;
 
     }
